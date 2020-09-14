@@ -6,7 +6,7 @@ from flask.views import MethodView
 from project.server import bcrypt, db
 from project.server.models import User
 
-user_blueprint = Blueprint('auth', __name__)
+user_blueprint = Blueprint('user', __name__)
 
 class RegisterAPI(MethodView):
     """
