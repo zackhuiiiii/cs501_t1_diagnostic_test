@@ -27,7 +27,7 @@ registration_view = RegisterAPI.as_view('register_api')
 
 # add Rules for API Endpoints
 user_blueprint.add_url_rule(
-    '/auth/register',
+    '/user/index',
     view_func=registration_view,
-    methods=['POST', 'GET']
+    methods=['GET']
 )
