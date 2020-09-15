@@ -14,9 +14,9 @@ class RegisterAPI(MethodView):
     """
 
     def get(self):
-    	user=db.session.query(User).all()
-    	list1=[]
-    	for x in user:
+        user=db.session.query(User).all()
+        list1=[]
+        for x in user:
             y=x.email
             list1.append(y)
         return jsonify({'user':list1}),201
