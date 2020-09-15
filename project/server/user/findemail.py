@@ -6,7 +6,7 @@ from flask.views import MethodView
 from project.server import bcrypt, db
 from project.server.models import User
 
-user_blueprint = Blueprint('user', __name__)
+findemail_blueprint = Blueprint('findemail', __name__)
 
 class RegisterAPI(MethodView):
     """
@@ -14,20 +14,20 @@ class RegisterAPI(MethodView):
     """
 
     def get(self):
-        user=db.session.query(User).all()
+        q=db.session.query(User).all()
         list1=[]
-        for x in user:
-            y=x.email
+        for i in q:
+            y=i.email
             list1.append(y)
-        return jsonify({'user':list1}),201
+        return list1
 
 
 # define the API resources
 registration_view = RegisterAPI.as_view('register_api')
 
 # add Rules for API Endpoints
-user_blueprint.add_url_rule(
-    '/user/index',
+findemail_blueprint.add_url_rule(
+    '/users/index',
     view_func=registration_view,
     methods=['GET']
 )
