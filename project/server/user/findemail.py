@@ -19,7 +19,7 @@ class RegisterAPI(MethodView):
         for i in q:
             y=i.email
             list1.append(y)
-        return list1,201
+        return jsonify({'user':list1}),201
 
 
 # define the API resources
